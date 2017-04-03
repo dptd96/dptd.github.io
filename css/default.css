@@ -1,0 +1,349 @@
+
+@import url("fonts.css");
+@import url("fontello/css/fontello.css");
+
+
+
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p, img,
+footer, header {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   outline: 0;
+   font-size: 100%;
+   vertical-align: baseline;
+
+}
+
+/*
+  YE - what does the * selector do, and why did you choose to set your elements to border-box?
+  D - The *selector applies styling to all elements. You can also using it to apply a styling to every element inside a particular element. (div *)
+  I found the idea for the
+*,
+*:before,
+*:after {
+format from this blog: https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+The reason I used it was to spaces all my elements out so that I wouldn't neeed to fiddle with each elements padding individually.
+I used the border-box so that the width and height would take the content into account therefore be a consistent size throughout the webpage.
+I picked up alot of this stuff when I googled consitent box sizing. 
+Other links i found useful:
+https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+https://www.w3schools.com/cssref/css3_pr_box-sizing.asp
+https://www.abeautifulsite.net/box-sizing-border-box-explained
+https://css-tricks.com/box-sizing/
+*/
+*,
+*:before,
+*:after {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+html {
+   font-size: 62.5%;
+   -webkit-font-smoothing: antialiased;
+}
+
+body {
+   background: #fff;
+   font-family: 'opensans-regular', sans-serif;
+   font-weight: normal;
+   font-size: 15px;
+   line-height: 30px;
+	color: #838C95;
+
+   -webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+}
+
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {
+   color: #313131;
+	font-family: 'opensans-bold', sans-serif;
+   font-weight: normal;
+}
+
+
+p { margin: 0 0 30px 0; }
+p img { margin: 0; }
+p.lead {
+   font: 19px/36px 'opensans-light', sans-serif;
+   margin-bottom: 18px;
+}
+
+.row {
+   width: 96%;
+   max-width: 1020px;
+   margin: 0 auto;
+}
+
+/* row clearing */
+.row:before,
+.row:after {
+    content: " ";
+    display: table;
+}
+.row:after {
+    clear: both;
+}
+
+.column, .columns {
+   position: relative;
+   padding: 0 20px;
+   min-height: 1px;
+   float: left;
+}
+.column.centered, .columns.centered  {
+    float: none;
+    margin: 0 auto;
+}
+
+
+/* column widths */
+/*
+  YE - explain what these percentages do exactly, and why you need 12 of these classe
+   D - The percetages create rows that I could use to format element on the page. The numbers are multilples of 8.33333% as 100/12== 8.3333.
+I wanted to equally space each row. I found the idea from another person gitbhub: https://gist.github.com/BrianNaja/5800819
+The 12 rows is there as i took it directly, I tried using a different number of rows (4,6,10 etc.) but 12 rows looks the best
+Using the same logic I could create a n row like the following:
+.row .one         { width: 100/n%; }
+.row .two         { width: 28(100/n); }
+...
+.row .n-1       { width: (n-1)*(100/n)%; }
+.row .n        { width: 100%; }
+*/
+.row .one         { width: 8.33333%; }
+.row .two         { width: 16.66667%; }
+.row .three       { width: 25%; }
+.row .four        { width: 33.33333%; }
+.row .five        { width: 41.66667%; }
+.row .six         { width: 50%; }
+.row .seven       { width: 58.33333%; }
+.row .eight       { width: 66.66667%; }
+.row .nine        { width: 75%; }
+.row .ten         { width: 83.33333%; }
+.row .eleven      { width: 91.66667%; }
+.row .twelve      { width: 100%; }
+
+header {
+   position: relative;
+   height: 800px;
+   min-height: 500px;
+   width: 100%;
+   background:  linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url(../images/header-background.jpg);
+   /*
+     YE - what does !important do
+      D - Usually the stylesheet give the lasts assingment (bottom) precedence.
+	The !important overides this and basically says use this until overwritten by another important regardless of how many times its used without another !important following the first important statement.
+	The importants here shouldn't be here that was just me messing around and forgetting to take them out! 
+   */
+   background-size: cover; /*!important;*/
+   -webkit-background-size: cover; /* !important;*/
+   text-align: center;
+   overflow: hidden;
+}
+
+/* vertically center banner section */
+header:before {
+   content: '';
+   display: inline-block;
+   vertical-align: middle;
+   height: 100%;
+}
+header .banner {
+   display: inline-block;
+   vertical-align: middle;
+   margin: 0 auto;
+   width: 85%;
+   padding-bottom: 30px;
+   text-align: center;
+}
+
+header .banner-text { width: 100%; }
+header .banner-text h1{
+   font: 90px/1.1em 'opensans-bold', sans-serif;
+   color: #fff;
+   margin: 0 auto 18px auto;
+
+}
+header .banner-text h3 {
+   font: 18px/1.9em 'librebaskerville-regular', serif;
+   color: #fff;
+   margin: 0 auto;
+}
+
+
+/* About */
+
+#about {
+   background: #2B2B2B;
+   padding-top: 96px;
+   padding-bottom: 66px;
+   overflow: hidden;
+}
+
+
+#about h2 {
+   font: 22px/30px 'opensans-bold', sans-serif;
+   color: #fff;
+   margin-bottom: 12px;
+}
+#about p {
+   line-height: 30px;
+   color: #7A7A7A;
+}
+#about .profile-pic {
+   position: relative;
+   width: 120px;
+   height: auto;
+   border-radius: 100%;
+}
+#about .linkpic {
+   position: relative;
+   width: 30px;
+   height: 30px;
+}
+
+/* Resume */
+
+#resume {
+   background: #fff;
+   padding-top: 90px;
+   padding-bottom: 72px;
+   overflow: hidden;
+}
+
+#resume a, #resume a:visited  { color: #11ABB0; }
+#resume a:hover, #resume a:focus { color: #313131; }
+
+#resume h2 {
+   font: 18px/24px 'opensans-bold', sans-serif;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+}
+#resume h2 span {
+   border-bottom: 3px solid #11ABB0;
+   padding-bottom: 6px;
+}
+#resume h3 {
+   font: 25px/30px 'opensans-bold', sans-serif;
+}
+
+.education, .work {
+   margin-bottom: 48px;
+   padding-bottom: 24px;
+   border-bottom: 1px solid #E8E8E8;
+}
+#resume .info {
+   font: 16px/24px 'librebaskerville-italic', serif;
+   color: #6E7881;
+   margin-bottom: 18px;
+   margin-top: 9px;
+}
+#resume .date {
+   font: 15px/24px 'opensans-regular', sans-serif;
+   margin-top: 6px;
+}
+
+
+/* Footer */
+
+footer {
+   padding-top: 48px;
+   margin-bottom: 48px;
+   color: #303030;
+   font-size: 14px;
+   text-align: center;
+   position: relative;
+    background: #706d6d ;
+
+}
+
+
+/* Go To Top Button */
+#go-top {
+   position: absolute;
+   top: -24px;
+   left: 50%;
+   margin-left: -30px;
+}
+#go-top a {
+   text-decoration: none;
+   border: 0 none;
+   display: block;
+   width: 60px;
+   height: 60px;
+   background-color: #525252;
+
+   color: #fff;
+   font-size: 21px;
+   line-height: 60px;
+   border-radius: 100%;
+}
+#go-top a:hover { background-color: #0F9095; }
+
+div.img2 {
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    width: 500px;
+    background-color: #ffffff;
+}
+
+div.img2:hover {
+    border: 1px solid #777;
+}
+
+div.img2 img {
+    width: 100%;
+    height: auto;
+
+}
+div.desc {
+    padding-top: 50px;
+    padding: 15px;
+    text-align: center;
+}
+
+div.ico {
+   float: left;
+}
+
+div.ico2 {
+   float: right;
+   padding-top: 10px;
+}
+
+div.bod {
+   background:  linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ), url(../images/bk.jpg);
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+    @media print {
+   body {
+      color: #000;
+      background: #fff;
+   }
+
+   header, footer{
+      display: none;
+}
+
+   div.ico {
+   display: none;
+}
+
+div.ico2 {
+   display: none;
+}
+}
